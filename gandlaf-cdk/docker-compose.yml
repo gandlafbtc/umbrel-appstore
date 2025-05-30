@@ -5,6 +5,7 @@ services:
     environment:
       APP_HOST: gandlaf-cdk_server_1
       APP_PORT: 6754
+      PROXY_AUTH_ADD: "false"
     
   server:
     image: gandlaf21/cdk-app:0.0.1@sha256:ea7465d11aa703e71a6e2cf1d6ec5c7f0172e6715f2c3746803094f15ac17c3b
