@@ -3,16 +3,16 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      APP_HOST: gandlaf-cdk_mintd_1
-      APP_PORT: 8085
+      APP_HOST: gandlaf-cdk_server_1
+      APP_PORT: 6754
       PROXY_AUTH_ADD: "false"
     
-  # server:
-  #   image: gandlaf21/cdk-app:0.0.1@sha256:ea7465d11aa703e71a6e2cf1d6ec5c7f0172e6715f2c3746803094f15ac17c3b
-  #   restart: on-failure
-  #   stop_grace_period: 5s
-  #   ports: 
-  #     - "6754:3000"
+  server:
+    image: gandlaf21/cdk-app:0.0.1@sha256:ea7465d11aa703e71a6e2cf1d6ec5c7f0172e6715f2c3746803094f15ac17c3b
+    restart: on-failure
+    stop_grace_period: 5s
+    ports: 
+      - "6754:3000"
     
   mintd:
     image: gandlaf21/cdk:0.9.2@sha256:15d3a8b8336ffd75831f3cb5618c1590d402370f1aa4df2a3bfafea21f0be691
