@@ -32,6 +32,7 @@ services:
     command: ["cdk-mintd"]
     depends_on:
       - redis
+      - server
 
   redis:
     image: redis:7-alpine
