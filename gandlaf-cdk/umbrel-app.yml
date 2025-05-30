@@ -1,0 +1,24 @@
+manifestVersion: 1
+id: gandlaf-cdk
+name: CDK Mint
+tagline: Cashu mint written in rust
+icon: https://github.com/gandlafbtc/cdk-umbrel-app/blob/master/static/CDK_BG.png?raw=true
+category: Bitcoin
+version: "0.9.2"
+port: 6754
+description: >-
+  CDK is a cashu mint implementation written in rust. 
+developer: thesimplekid
+website: https://cashudevkit.org/
+submitter: Gandlaf
+submission: https://github.com/gandlaf/cdk-umbrel-app
+repo: https://github.com/gandlaf/cdk-umbrel-app
+support: https://github.com/cashubtc/cdk
+gallery:
+  - https://github.com/gandlafbtc/cdk-umbrel-app/blob/master/screen.png?raw=true
+releaseNotes: >-
+  Add what's new in the latest version of your app here.
+dependencies: ["lightning"]
+path: ""
+defaultUsername: ""
+defaultPassword: ""
