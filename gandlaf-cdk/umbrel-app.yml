@@ -5,7 +5,7 @@ tagline: Cashu mint written in rust
 icon: https://github.com/gandlafbtc/cdk-umbrel-app/blob/master/static/CDK_BG.png?raw=true
 category: Bitcoin
 version: "0.9.2.1"
-port: 6754
+port: 6755
 description: >-
   CDK is a cashu mint implementation written in rust. 
 developer: thesimplekid
