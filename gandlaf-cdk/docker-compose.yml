@@ -1,14 +1,13 @@
 version: "3.7"
 
 services:
-
-  app_proxy:
-    environment:
-      APP_HOST: gandlaf-cdk_server_1
-      APP_PORT: 6754
+app_proxy:
+  environment:
+    APP_HOST: gandlaf-cdk_server_1
+    APP_PORT: 6754
     
   server:
-    image: gandlaf21/cdk-app:latest
+    image: gandlaf21/cdk-app:0.0.1
     restart: on-failure
     stop_grace_period: 5s
     ports: 
@@ -26,7 +25,6 @@ services:
       - CDK_MINTD_LISTEN_HOST=0.0.0.0
       - CDK_MINTD_LISTEN_PORT=8085
       - CDK_MINTD_MNEMONIC=quarter season champion wagon abuse point doll blossom funny snake radio stamp
-      - CDK_MINTD_DATABASE=redb
       - CDK_MINTD_CACHE_BACKEND=memory
       - CDK_MINTD_CACHE_REDIS_URL=redis://redis:6379 
       - CDK_MINTD_CACHE_REDIS_KEY_PREFIX=cdk-mintd
@@ -35,7 +33,6 @@ services:
       - redis
   redis:
     image: redis:7-alpine
-    container_name: mint_redis
     ports:
       - "6379:6379"
     volumes:
