@@ -1,10 +1,10 @@
 version: "3.7"
 
 services:
-app_proxy:
-  environment:
-    APP_HOST: gandlaf-cdk_server_1
-    APP_PORT: 6754
+  app_proxy:
+    environment:
+      APP_HOST: gandlaf-cdk_server_1
+      APP_PORT: 6754
     
   server:
     image: gandlaf21/cdk-app:0.0.1
