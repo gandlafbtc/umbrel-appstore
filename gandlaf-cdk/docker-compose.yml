@@ -21,6 +21,8 @@ services:
     ports:
       - "8085:8085"
     command: ["cdk-mintd"]
+    environment:
+      - CONFIG_PATH=${PWD}/data/.cdk-mintd/config.toml
     volumes: 
       - ${APP_DATA_DIR}/data:/data
       - ${PWD}/data/.cdk-mintd:/root/.cdk-mintd/
