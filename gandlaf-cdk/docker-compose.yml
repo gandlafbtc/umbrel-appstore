@@ -11,8 +11,11 @@ services:
     image: gandlaf21/cdk-app:0.0.2@sha256:a3c4715150bdbcf6439e4a3170c7d24cb80a55c775a78d4f6a8f15d857ad89fb
     restart: on-failure
     stop_grace_period: 5s
+    depends_on:
+     - mintd
     environment:
       - CONFIG_PATH=/root/.cdk-mintd/config.toml
+    volumes: 
       - ${PWD}/data/.cdk-mintd:/root/.cdk-mintd/
     ports:
       - "5555:3000"
