@@ -14,9 +14,9 @@ services:
     depends_on:
      - mintd
     environment:
-      - CONFIG_PATH=/root/.cdk-mintd/config.toml
+      - CONFIG_PATH=/data/.cdk-mintd/config.toml
     volumes: 
-      - ${PWD}/data/.cdk-mintd:/root/.cdk-mintd/
+      - ${APP_DATA_DIR}/data:/data
     ports:
       - "5555:3000"
 
