@@ -1,37 +1,57 @@
 [info]
+# MUST CHANGE
 url = "https://yourdomain.com"
-listen_host = "0.0.0.0"
-listen_port = 8085
 mnemonic = "tragic today awful upon pledge winter wool outdoor attract proof aim boring"
+
+# CAN CHANGE
 input_fee_ppk = 0
 enable_swagger_ui = false
 
-[mint_info]
-name = "<Your mint Name>"
-# Hex pubkey of mint
-# pubkey = "<your hex pubkey>"
-description = "<your description>"
-description_long = "<your long description>"
-motd = "Hello world"
-icon_url = "https://this-is-a-mint-icon-url.com/icon.png"
-contact_email = "<your contact email>"
-# Nostr pubkey of mint (Hex)
-contact_nostr_public_key = ""
+# DON'T CHANGE
+listen_host = "0.0.0.0"
+listen_port = 8085
 
 [ln]
+# MUST CHANGE
 # Required ln backend `cln`, `lnd`, `strike`, `fakewallet`, 'lnbits', 'phoenixd'
 ln_backend = "fakewallet"
+
+# CAN CHANGE
 # min_mint=1
 # max_mint=500000
 # min_melt=1
 # max_melt=500000
 
 # [lnd]
-# address = 
+# MUST CHANGE (IF USING LND)
+# address = <HOST>:<PORT>
 # macaroon_file = /lnd/data/chain/bitcoin/$APP_BITCOIN_NETWORK/admin.macaroon
 # cert_file = /lnd/tls.key
 # fee_percent=0.04
 # reserve_fee_min=4
+
+[fake_wallet]
+supported_units = ["sat"]
+fee_percent = 0.02
+reserve_fee_min = 1
+min_delay_time = 1
+max_delay_time = 3
+
+[mint_info]
+# SHOULD CHANGE
+name = "<Your mint Name>"
+description = "<your description>"
+description_long = "<your long description>"
+# pubkey = "<your mints hex pubkey>"
+motd = "Hello world"
+icon_url = "https://this-is-a-mint-icon-url.com/icon.png"
+contact_email = "<your contact email>"
+# Nostr pubkey of mint (Hex)
+contact_nostr_public_key = ""
+
+
+# -----------------------------------------------------
+# OTHER BACKEND OPTIONS (EXTERNAL)
 
 #[cln]
 #Required if using cln backend path to rpc
@@ -62,13 +82,7 @@ ln_backend = "fakewallet"
 # fee_percent=0.05
 # reserve_fee_min=4
 
-[fake_wallet]
-supported_units = ["sat"]
-fee_percent = 0.02
-reserve_fee_min = 1
-min_delay_time = 1
-max_delay_time = 3
-
+# ---------------------------------------------------------
 
 [info.http_cache]
 backend = "memory"
