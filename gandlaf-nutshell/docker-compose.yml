@@ -1,0 +1,32 @@
+version: "3.7"
+services:
+  app_proxy:
+    environment:
+      APP_HOST: gandlaf-nutshell_server_1
+      APP_PORT: 3000
+      PROXY_AUTH_ADD: "false"
+    
+  server:
+    image: gandlaf21/nutshell-app:0.0.1@sha256:61d6b8e7a1cc342d4d8d3b7597bffe13ee5cdbc4f55f1c74a8c46ca7bbd4acc2
+    restart: on-failure
+    stop_grace_period: 5s
+    depends_on:
+     - nutshell
+    environment:
+      - CONFIG_PATH=/data/config/.env
+    volumes: 
+      - ${APP_DATA_DIR}/data:/data
+    ports:
+      - "5555:3000"
+
+  nutshell:
+    image: cashubtc/nutshell:0.17.0@sha256:a1a6dd26d4354e520f144622469e3ab0c92a94d32a670a4a5256dcd1537cc7d7
+    env_file:
+      - /data/config/.env
+    ports:
+      - "3338:3338"
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+      - ${APP_LIGHTNING_NODE_DATA_DIR}:/lnd
+    
+    command: ["poetry", "run", "mint"]
