@@ -2,20 +2,20 @@ manifestVersion: 1
 id: gandlaf-nutshell
 name: Nutshell Mint
 tagline: Cashu mint written in python
-icon: https://github.com/gandlafbtc/cdk-umbrel-app/blob/master/static/CDK_BG.png?raw=true
+icon: https://github.com/gandlafbtc/nutshell-umbrel-app/blob/master/static/nutshell_BG.png?raw=true
 category: Bitcoin
 version: "0.17.0.1"
 port: 6788
 description: >-
   CDK is a cashu mint implementation written in rust. 
-developer: thesimplekid
+developer: calle
 website: https://github.com/cashubtc/nutshell
 submitter: Gandlaf
 submission: https://github.com/gandlaf/nutshell-umbrel-app
 repo: https://github.com/gandlaf/nutshell-umbrel-app
 support: https://github.com/cashubtc/nutshell
 gallery:
-  - https://github.com/gandlafbtc/cdk-umbrel-app/blob/master/screen.png?raw=true
+  - https://github.com/gandlafbtc/nutshell-umbrel-app/blob/master/nutshell-screen.png?raw=true
 releaseNotes: >-
   Add what's new in the latest version of your app here.
 dependencies: ["lightning"]
