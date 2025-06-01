@@ -1,9 +1,9 @@
 services:
-  # app_proxy:
-  #   environment:
-  #     APP_HOST: gandlaf-nutshell_server_1
-  #     APP_PORT: 3000
-  #     PROXY_AUTH_ADD: "false"
+  app_proxy:
+    environment:
+      APP_HOST: gandlaf-nutshell_server_1
+      APP_PORT: 3000
+      PROXY_AUTH_ADD: "false"
     
   server:
     image: gandlaf21/nutshell-app:0.0.1@sha256:08b81d0e09851af5b7c99914de2184c5cf6a90a915e1eddcc0198513b6e13c38
