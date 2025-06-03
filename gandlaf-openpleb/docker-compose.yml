@@ -11,20 +11,20 @@ version: '3.8'
 services:
 
   server:
-    image: 
+    image: gandlaf21/openpleb-umbrel-app:0.0.1@sha256:703201b0777551ca9ac0f49928538f1783fedcc2b4846aa9a2826ef23d1fc8a0
     restart: on-failure
     stop_grace_period: 5s
     depends_on:
      - nutshell
     environment:
-      - CONFIG_PATH=/data/config/.env
+      - CONFIG_PATH=/data/config
     volumes: 
       - ${APP_DATA_DIR}/data:/data
     ports:
       - "5555:3000"
 
   backend:
-    build:
+    build: gandlaf21/openpleb-backend:0.1.0@sha256:f12ad50ef107b483d34a7c1d4ad074ad5883139f2d97f013fc087d824cb6c769
       context: .
       dockerfile: Dockerfile
     restart: unless-stopped
@@ -38,7 +38,7 @@ services:
       - postgres
 
   frontend:
-    image: 
+    image: gandlaf21/openpleb-frontend:0.0.1@sha256:a77fd31a86c27357155a38859814a5c327ad7f39a8123b88f9d5036ad1e73a2a
     restart: unless-stopped
     env_file:
      - ${APP_DATA_DIR}/data/config/frontend/.env
@@ -52,9 +52,7 @@ services:
       - ${APP_DATA_DIR}/data/config/frontend/.env:/app/data/config/frontend/.env
 
   admin-frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile.frontend
+    image: gandlaf21/openpleb-admin-frontend:0.0.1@sha256:3f419e1d3a9afe41f44c38fb00b8305473ba413de43b25525882c3f629acfe17
     restart: unless-stopped
     env_file: 
      - ${APP_DATA_DIR}/data/config/frontend/.env
@@ -68,7 +66,7 @@ services:
       - ${APP_DATA_DIR}/data/config/admin-frontend/.env:/app/data/config/admin-frontend/.env
       
   postgres:
-    image: postgres:15.3
+    image: postgres:15.3-alpine3.18@sha256:4ca65a9209f164bdb30f715ac2ed9182cc0737d0f0a549031b3c1b0b7e652f3a
     restart: unless-stopped
     env_file: 
      - ${APP_DATA_DIR}/data/config/db/.env
