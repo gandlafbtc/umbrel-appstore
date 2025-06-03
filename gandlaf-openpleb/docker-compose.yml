@@ -7,7 +7,7 @@ services:
       APP_PORT: 3000
       PROXY_AUTH_ADD: "false"
   server:
-    image: gandlaf21/openpleb-umbrel-app:0.0.1@sha256:703201b0777551ca9ac0f49928538f1783fedcc2b4846aa9a2826ef23d1fc8a0
+    image: gandlaf21/openpleb-umbrel-app:0.0.1@sha256:393266667474545913a0b0fc23cf0d9123f9d566aeb4446f9ab1c598cd9d6476
     restart: on-failure
     stop_grace_period: 5s
     environment:
