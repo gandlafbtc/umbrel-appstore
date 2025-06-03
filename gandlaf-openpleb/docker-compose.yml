@@ -10,8 +10,6 @@ services:
     image: gandlaf21/openpleb-umbrel-app:0.0.1@sha256:703201b0777551ca9ac0f49928538f1783fedcc2b4846aa9a2826ef23d1fc8a0
     restart: on-failure
     stop_grace_period: 5s
-    depends_on:
-     - nutshell
     environment:
       - CONFIG_PATH=/data/config
     volumes: 
