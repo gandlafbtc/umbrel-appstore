@@ -23,7 +23,7 @@ services:
     env_file: 
      - ${APP_DATA_DIR}/data/config/backend/.env
     ports:
-      - "3003:3003"
+      - "3044:3003"
     volumes:
       - ${APP_DATA_DIR}/data:/app/data
     depends_on:
