@@ -36,8 +36,6 @@ services:
      - ${APP_DATA_DIR}/data/config/frontend/.env
     ports:
       - "3010:3000"
-    networks:
-      - postgres-network
     depends_on:
       - backend
     volumes:
@@ -50,8 +48,6 @@ services:
      - ${APP_DATA_DIR}/data/config/frontend/.env
     ports:
       - "3011:3000"
-    networks:
-      - postgres-network
     depends_on:
       - backend
     volumes:
