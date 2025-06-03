@@ -5,7 +5,7 @@ tagline: Pay fiat QRs with Bitcoin Lightning
 icon: https://github.com/gandlafbtc/open-pleb/blob/master/packages/frontend/static/maskable-icon.png?raw=true
 category: Bitcoin
 version: "0.1.0.1"
-port: 6754
+port: 6799
 description: >-
   OpenPleb is a web application that allows you to pay fiat QRs with Bitcoin Lightning, or earn Bitcoin for paying fiat QRs as the counterparty. 
 
