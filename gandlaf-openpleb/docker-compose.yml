@@ -3,6 +3,88 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      APP_HOST: gandlaf-openpleb_admin_frontend_1
-      APP_PORT: 3333
+      APP_HOST: gandlaf-openpleb_server_1
+      APP_PORT: 3000
       PROXY_AUTH_ADD: "false"
+version: '3.8'
+
+services:
+
+  server:
+    image: 
+    restart: on-failure
+    stop_grace_period: 5s
+    depends_on:
+     - nutshell
+    environment:
+      - CONFIG_PATH=/data/config/.env
+    volumes: 
+      - ${APP_DATA_DIR}/data:/data
+    ports:
+      - "5555:3000"
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file: 
+     - ${APP_DATA_DIR}/data/config/backend/.env
+    ports:
+      - "3003:3003"
+    volumes:
+      - ${APP_DATA_DIR}/data:/app/data
+    depends_on:
+      - postgres
+
+  frontend:
+    image: 
+    restart: unless-stopped
+    env_file:
+     - ${APP_DATA_DIR}/data/config/frontend/.env
+    ports:
+      - "3010:3000"
+    networks:
+      - postgres-network
+    depends_on:
+      - backend
+    volumes:
+      - ${APP_DATA_DIR}/data/config/frontend/.env:/app/data/config/frontend/.env
+
+  admin-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    restart: unless-stopped
+    env_file: 
+     - ${APP_DATA_DIR}/data/config/frontend/.env
+    ports:
+      - "3011:3000"
+    networks:
+      - postgres-network
+    depends_on:
+      - backend
+    volumes:
+      - ${APP_DATA_DIR}/data/config/admin-frontend/.env:/app/data/config/admin-frontend/.env
+      
+  postgres:
+    image: postgres:15.3
+    restart: unless-stopped
+    env_file: 
+     - ${APP_DATA_DIR}/data/config/db/.env
+    ports:
+      - "5439:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ${APP_DATA_DIR}/data/config/db/.env:/app/data/config/db/.env
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+volumes:
+  postgres-data:
+    driver: local
+
