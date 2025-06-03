@@ -16,7 +16,7 @@ submission: https://github.com/gandlafbtc/open-pleb
 repo: https://github.com/gandlafbtc/open-pleb
 support: https://github.com/cashubtc/cdk
 gallery:
-  - https://github.com/gandlafbtc/cdk-umbrel-app/blob/master/screen.png?raw=true
+  - https://github.com/gandlafbtc/open-pleb/blob/master/packages/umbrel-app/screen.png?raw=true
 releaseNotes: >-
   First release!
 dependencies: []
