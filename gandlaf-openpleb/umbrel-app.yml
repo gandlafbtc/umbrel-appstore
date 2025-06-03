@@ -19,7 +19,7 @@ gallery:
   - https://github.com/gandlafbtc/cdk-umbrel-app/blob/master/screen.png?raw=true
 releaseNotes: >-
   First release!
-dependencies: ["lightning"]
+dependencies: []
 path: ""
 defaultUsername: ""
 defaultPassword: ""
