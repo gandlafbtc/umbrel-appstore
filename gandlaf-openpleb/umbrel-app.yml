@@ -9,12 +9,12 @@ port: 6799
 description: >-
   OpenPleb is a web application that allows you to pay fiat QRs with Bitcoin Lightning, or earn Bitcoin for paying fiat QRs as the counterparty. 
 
-developer: thesimplekid
+developer: gandlaf21
 website: https://openpleb.cash
 submitter: Gandlaf
 submission: https://github.com/gandlafbtc/open-pleb
 repo: https://github.com/gandlafbtc/open-pleb
-support: https://github.com/cashubtc/cdk
+support: https://github.com/gandlafbtc/open-pleb
 gallery:
   - https://github.com/gandlafbtc/open-pleb/blob/master/packages/umbrel-app/screen.png?raw=true
 releaseNotes: >-

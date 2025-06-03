@@ -6,10 +6,6 @@ services:
       APP_HOST: gandlaf-openpleb_server_1
       APP_PORT: 3000
       PROXY_AUTH_ADD: "false"
-version: '3.8'
-
-services:
-
   server:
     image: gandlaf21/openpleb-umbrel-app:0.0.1@sha256:703201b0777551ca9ac0f49928538f1783fedcc2b4846aa9a2826ef23d1fc8a0
     restart: on-failure
