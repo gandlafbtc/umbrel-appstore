@@ -20,9 +20,7 @@ services:
       - "5555:3000"
 
   backend:
-    build: gandlaf21/openpleb-backend:0.1.0@sha256:f12ad50ef107b483d34a7c1d4ad074ad5883139f2d97f013fc087d824cb6c769
-      context: .
-      dockerfile: Dockerfile
+    image: gandlaf21/openpleb-backend:0.1.0@sha256:f12ad50ef107b483d34a7c1d4ad074ad5883139f2d97f013fc087d824cb6c769
     restart: unless-stopped
     env_file: 
      - ${APP_DATA_DIR}/data/config/backend/.env
